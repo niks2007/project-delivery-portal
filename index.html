@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Track your project delivery status and download your files when ready">
+    <meta name="theme-color" content="#2d1e1e">
+    <title>Project Delivery Status</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Orbitron:wght@400;600&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="assets/new.png" alt="Logo" class="logo">
+        </div>
+        <h1 class="title"><span class="title-word title-word-1">Project</span> <span class="title-word title-word-2">Delivery</span> <span class="title-word title-word-3">Status</span></h1>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="https://niks2007.github.io/port/" class="nav-link"><i class="fas fa-user-circle"></i> Visit My Portfolio</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="page-wrapper">
+
+    <main>
+        <div class="timeline-container">
+            <div class="timeline-step completed">
+                <div class="step-icon">
+                    <i class="fas fa-check"></i>
+                </div>
+                <div class="step-content">
+                    <h3>Editing Started</h3>
+                    <p class="step-description">Initial project setup and editing completed</p>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 100%;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-step completed">
+                <div class="step-icon">
+                    <i class="fas fa-check"></i>
+                </div>
+                <div class="step-content">
+                    <h3>Effects & VFX Added</h3>
+                    <p class="step-description">Visual effects and enhancements applied</p>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 100%;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-step active">
+                <div class="step-icon">
+                    <i class="fas fa-spinner fa-spin"></i>
+                </div>
+                <div class="step-content">
+                    <h3>Final Render in Progress</h3>
+                    <p class="step-description">Rendering high-quality output files</p>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 75%;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-step">
+                <div class="step-icon">
+                    <i class="fas fa-hourglass"></i>
+                </div>
+                <div class="step-content">
+                    <h3>Delivered!</h3>
+                    <p class="step-description">Final files ready for download</p>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 0%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <section class="download-section">
+        <a href="https://www.dropbox.com/scl/fi/c0sroiy5y2ybj4mcesks3/data-kunal.7z?rlkey=p6bfomjhq2zkdk0htn1cw3yy6&st=3llbs9h1&dl=1" class="download-button">
+            <i class="fas fa-download"></i> Download Project
+        </a>
+        <p class="download-info">Your project files are ready for download</p>
+        
+        <div class="portfolio-link-container">
+            <a href="https://niks2007.github.io/port/" class="portfolio-link">
+                <i class="fas fa-user-circle"></i> Visit My Portfolio
+            </a>
+        </div>
+    </section>
+    </div>
+    
+    <footer>
+        <p>&copy; 2023 Project Delivery Portal. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add scroll reveal effect to timeline steps
+            const timelineSteps = document.querySelectorAll('.timeline-step');
+            
+            // Update progress bar animation on page load
+            setTimeout(function() {
+                const activeProgress = document.querySelector('.timeline-step.active .progress');
+                if (activeProgress) {
+                    activeProgress.style.transition = 'width 1.5s cubic-bezier(0.19, 1, 0.22, 1)';
+                }
+            }, 500);
+            
+            // Add hover effect to completed steps
+            timelineSteps.forEach(step => {
+                if (step.classList.contains('completed')) {
+                    step.addEventListener('mouseenter', function() {
+                        this.querySelector('.step-icon').style.transform = 'scale(1.1)';
+                    });
+                    
+                    step.addEventListener('mouseleave', function() {
+                        this.querySelector('.step-icon').style.transform = 'scale(1.05)';
+                    });
+                }
+            });
+            
+            // Add pulse effect to download button
+            const downloadButton = document.querySelector('.download-button');
+            setTimeout(function() {
+                downloadButton.classList.add('attention');
+                setTimeout(function() {
+                    downloadButton.classList.remove('attention');
+                }, 2000);
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
